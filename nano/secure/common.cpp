@@ -51,11 +51,11 @@ char const * beta_genesis_data = R"%%%({
 
 char const * live_genesis_data = R"%%%({
 	"type": "open",
-	"source": "E89208DD038FBB269987689621D52292AE9C35941A7484756ECCED92A65093BA",
-	"representative": "xrb_3t6k35gi95xu6tergt6p69ck76ogmitsa8mnijtpxm9fkcm736xtoncuohr3",
-	"account": "xrb_3t6k35gi95xu6tergt6p69ck76ogmitsa8mnijtpxm9fkcm736xtoncuohr3",
-	"work": "62f05417dd3fb691",
-	"signature": "9F0C933C8ADE004D808EA1985FA746A7E95BA2A38F867640F53EC8F180BDFE9E2C1268DEAD7C2664F356E37ABA362BC58E46DBA03E523A7B5A19E4B6EB12BB02"
+	"source": "4FE444C1F67C7E36CC5C96D25AD0E921C2EEB692A65AA1B932547A4325CF59BC",
+	"representative": "xdg_1mz6am1zez5y8u87s7pkddagkag4xtub7bktn8wm6o5taekwypfww4p6frby",
+	"account": "xdg_1mz6am1zez5y8u87s7pkddagkag4xtub7bktn8wm6o5taekwypfww4p6frby",
+	"work": "4a7e8010a8a4004b",
+	"signature": "CCB3783A6926B1B0BCDA027A5EAA42F19CBE49760904DFEB8210D676EB54B0ED05D6429D2F6184A46C3D46B98A0A3502497747A1ED0272149C63AC5702DE8F0A"
     })%%%";
 
 std::string const test_genesis_data = nano::get_env_or_default ("NANO_TEST_GENESIS_BLOCK", R"%%%({
@@ -131,26 +131,26 @@ nano::ledger_constants::ledger_constants (nano::work_thresholds & work, nano::ne
 	: network_a == nano::networks::nano_test_network                                                                                                               ? nano_test_final_votes_canary_height
 																																								   : nano_live_final_votes_canary_height)
 {
-	nano_beta_genesis->sideband_set (nano::block_sideband (nano_beta_genesis->account (), 0, std::numeric_limits<nano::uint128_t>::max (), 1, nano::seconds_since_epoch (), nano::epoch::epoch_0, false, false, false, nano::epoch::epoch_0));
-	nano_dev_genesis->sideband_set (nano::block_sideband (nano_dev_genesis->account (), 0, std::numeric_limits<nano::uint128_t>::max (), 1, nano::seconds_since_epoch (), nano::epoch::epoch_0, false, false, false, nano::epoch::epoch_0));
+	// nano_beta_genesis->sideband_set (nano::block_sideband (nano_beta_genesis->account (), 0, std::numeric_limits<nano::uint128_t>::max (), 1, nano::seconds_since_epoch (), nano::epoch::epoch_0, false, false, false, nano::epoch::epoch_0));
+	// nano_dev_genesis->sideband_set (nano::block_sideband (nano_dev_genesis->account (), 0, std::numeric_limits<nano::uint128_t>::max (), 1, nano::seconds_since_epoch (), nano::epoch::epoch_0, false, false, false, nano::epoch::epoch_0));
 	nano_live_genesis->sideband_set (nano::block_sideband (nano_live_genesis->account (), 0, std::numeric_limits<nano::uint128_t>::max (), 1, nano::seconds_since_epoch (), nano::epoch::epoch_0, false, false, false, nano::epoch::epoch_0));
-	nano_test_genesis->sideband_set (nano::block_sideband (nano_test_genesis->account (), 0, std::numeric_limits<nano::uint128_t>::max (), 1, nano::seconds_since_epoch (), nano::epoch::epoch_0, false, false, false, nano::epoch::epoch_0));
+	// nano_test_genesis->sideband_set (nano::block_sideband (nano_test_genesis->account (), 0, std::numeric_limits<nano::uint128_t>::max (), 1, nano::seconds_since_epoch (), nano::epoch::epoch_0, false, false, false, nano::epoch::epoch_0));
 
-	nano::link epoch_link_v1;
-	char const * epoch_message_v1 ("epoch v1 block");
-	strncpy ((char *)epoch_link_v1.bytes.data (), epoch_message_v1, epoch_link_v1.bytes.size ());
-	epochs.add (nano::epoch::epoch_1, genesis->account (), epoch_link_v1);
+	// nano::link epoch_link_v1;
+	// char const * epoch_message_v1 ("epoch v1 block");
+	// strncpy ((char *)epoch_link_v1.bytes.data (), epoch_message_v1, epoch_link_v1.bytes.size ());
+	// epochs.add (nano::epoch::epoch_1, genesis->account (), epoch_link_v1);
 
-	nano::link epoch_link_v2;
-	nano::account nano_live_epoch_v2_signer;
-	auto error (nano_live_epoch_v2_signer.decode_account ("nano_3qb6o6i1tkzr6jwr5s7eehfxwg9x6eemitdinbpi7u8bjjwsgqfj4wzser3x"));
-	debug_assert (!error);
-	auto epoch_v2_signer (network_a == nano::networks::nano_dev_network ? nano::dev::genesis_key.pub : network_a == nano::networks::nano_beta_network ? nano_beta_account
-	: network_a == nano::networks::nano_test_network                                                                                                  ? nano_test_account
-																																					  : nano_live_epoch_v2_signer);
-	char const * epoch_message_v2 ("epoch v2 block");
-	strncpy ((char *)epoch_link_v2.bytes.data (), epoch_message_v2, epoch_link_v2.bytes.size ());
-	epochs.add (nano::epoch::epoch_2, epoch_v2_signer, epoch_link_v2);
+	// nano::link epoch_link_v2;
+	// nano::account nano_live_epoch_v2_signer;
+	// auto error (nano_live_epoch_v2_signer.decode_account ("nano_3qb6o6i1tkzr6jwr5s7eehfxwg9x6eemitdinbpi7u8bjjwsgqfj4wzser3x"));
+	// debug_assert (!error);
+	// auto epoch_v2_signer (network_a == nano::networks::nano_dev_network ? nano::dev::genesis_key.pub : network_a == nano::networks::nano_beta_network ? nano_beta_account
+	// : network_a == nano::networks::nano_test_network                                                                                                  ? nano_test_account
+																																					//   : nano_live_epoch_v2_signer);
+	// char const * epoch_message_v2 ("epoch v2 block");
+	// strncpy ((char *)epoch_link_v2.bytes.data (), epoch_message_v2, epoch_link_v2.bytes.size ());
+	// epochs.add (nano::epoch::epoch_2, epoch_v2_signer, epoch_link_v2);
 }
 
 nano::hardened_constants & nano::hardened_constants::get ()
