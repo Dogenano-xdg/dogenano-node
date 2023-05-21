@@ -1,0 +1,9 @@
+libdir=/usr/lib/x86_64-linux-gnu
+includedir=/usr/include
+
+Name: FlatBuffers
+Description: Memory Efficient Serialization Library
+Version: 23.3.3
+
+Libs: -L${libdir} -lflatbuffers
+Cflags: -I${includedir}
