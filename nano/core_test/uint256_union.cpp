@@ -371,8 +371,8 @@ TEST (uint256_union, big_endian_union_function)
 TEST (uint256_union, decode_nano_variant)
 {
 	nano::account key;
-	ASSERT_FALSE (key.decode_account ("xrb_1111111111111111111111111111111111111111111111111111hifc8npp"));
-	ASSERT_FALSE (key.decode_account ("nano_1111111111111111111111111111111111111111111111111111hifc8npp"));
+	ASSERT_FALSE (key.decode_account ("xdg_1111111111111111111111111111111111111111111111111111hifc8npp"));
+	ASSERT_FALSE (key.decode_account ("xdg_1111111111111111111111111111111111111111111111111111hifc8npp"));
 }
 
 /**
@@ -384,7 +384,7 @@ TEST (uint256_union, key_is_not_updated_on_checksum_error)
 {
 	nano::account key;
 	ASSERT_EQ (key, 0);
-	bool result = key.decode_account ("nano_3e3j5tkog48pnny9dmfzj1r16pg8t1e76dz5tmac6iq689wyjfpiij4txtd1");
+	bool result = key.decode_account ("xdg_3e3j5tkog48pnny9dmfzj1r16pg8t1e76dz5tmac6iq689wyjfpiij4txtd1");
 	ASSERT_EQ (key, 0);
 	ASSERT_TRUE (result);
 }

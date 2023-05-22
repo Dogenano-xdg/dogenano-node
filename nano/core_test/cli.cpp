@@ -76,7 +76,7 @@ std::string call_cli_command (boost::program_options::variables_map const & vm)
 	std::stringstream ss;
 	nano::test::cout_redirect redirect (ss.rdbuf ());
 
-	// Execute CLI command. This populates the stringstream with a string like: "Private: 123\n Public: 456\n Account: nano_123"
+	// Execute CLI command. This populates the stringstream with a string like: "Private: 123\n Public: 456\n Account: xdg_123"
 	auto ec = nano::handle_node_options (vm);
 	release_assert (!static_cast<bool> (ec));
 	return ss.str ();
