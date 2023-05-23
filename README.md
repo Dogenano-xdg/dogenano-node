@@ -18,3 +18,11 @@
 | Rpc        | 7080 |
 | IPC        | 7081 |
 | Websocket  | 7082 |
+
+## Build
+```bash
+
+cmake -G "Unix Makefiles" .
+make nano_node
+
+```
